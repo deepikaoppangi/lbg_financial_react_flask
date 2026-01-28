@@ -89,3 +89,8 @@ logs/
 *.tmp
 *.temp
 .cache/
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+npm-debug.log*

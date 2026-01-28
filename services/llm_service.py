@@ -6,6 +6,9 @@ from pathlib import Path
 
 
 def _read_key_from_file() -> Optional[str]:
+    """
+    Fallback for local development: read OpenAI API key from secrets/openai_key.txt if present.
+    """
     key_file = Path("secrets") / "openai_key.txt"
     if not key_file.exists():
         return None
@@ -14,6 +17,9 @@ def _read_key_from_file() -> Optional[str]:
 
 
 def _get_api_key() -> Optional[str]:
+    """
+    Prefer OPENAI_API_KEY from the environment, fall back to secrets/openai_key.txt.
+    """
     return os.getenv("OPENAI_API_KEY") or _read_key_from_file()
 
 
