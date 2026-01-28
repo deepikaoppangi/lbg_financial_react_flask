@@ -1,0 +1,45 @@
+.financial-metrics-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, var(--lbg-green-pale) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 0.6rem;
+  border: 1px solid var(--lbg-green-subtle);
+  transition: all 0.2s ease;
+}
+
+.preview-item:hover {
+  background: var(--lbg-green-subtle);
+  transform: translateX(2px);
+}
+
+.preview-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.preview-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--lbg-salem);
+}
+
+.click-hint {
+  font-size: 0.75rem;
+  color: var(--lbg-salem);
+  text-align: center;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, var(--lbg-green-pale) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-radius: 0.6rem;
+  border: 1px dashed var(--lbg-green-subtle);
+}

@@ -1,0 +1,19 @@
+{
+  "currency": "GBP",
+  "categories": [
+    {"key":"kids","label":"Kids Education","monthly":300},
+    {"key":"health","label":"Healthcare","monthly":160},
+    {"key":"holiday","label":"Holiday","monthly":180},
+    {"key":"rent","label":"Mortgage / Rent","monthly":1450},
+    {"key":"transport","label":"Cab / Transport","monthly":220},
+    {"key":"grocery","label":"Grocery","monthly":520},
+    {"key":"electricity","label":"Electricity","monthly":120},
+    {"key":"utilities","label":"Utilities","monthly":110},
+    {"key":"other","label":"Other","monthly":400}
+  ],
+  "goal_pots": [
+    {"key":"edu_gap","label":"Education Gap","target":11800,"current":0},
+    {"key":"holiday_fund","label":"Holiday Fund","target":2500,"current":800},
+    {"key":"medical","label":"Medical Reserve","target":1500,"current":250}
+  ]
+}

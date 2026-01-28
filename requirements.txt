@@ -1,0 +1,4 @@
+# Python dependencies for lbg_financial_overview
+Flask
+python-dotenv
+# gunicorn>=20.1.0

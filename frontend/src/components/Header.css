@@ -1,0 +1,153 @@
+.header {
+  background: var(--lbg-white);
+  border-bottom: 2px solid var(--lbg-salem);
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.header-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.app-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-selector-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background: linear-gradient(135deg, var(--lbg-green-pale) 0%, rgba(232, 245, 237, 0.95) 100%);
+  border-radius: 0.6rem;
+  border: 1.5px solid var(--lbg-green-subtle);
+  box-shadow: 0 2px 4px rgba(8, 112, 56, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-selector-container:hover {
+  box-shadow: 0 4px 8px rgba(8, 112, 56, 0.15);
+  transform: translateY(-1px);
+}
+
+.profile-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0 0.25rem;
+}
+
+.profile-selector {
+  padding: 0.6rem 2.6rem 0.6rem 0.9rem;
+  border: none;
+  background: var(--lbg-white);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 200px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%23087038' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.profile-selector:hover {
+  box-shadow: 0 3px 6px rgba(8, 112, 56, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transform: translateY(-1.5px);
+}
+
+.profile-selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(8, 112, 56, 0.2), 0 3px 6px rgba(8, 112, 56, 0.18);
+}
+
+.period-selector {
+  display: flex;
+  gap: 0.3rem;
+  background: var(--lbg-green-pale);
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid var(--lbg-green-subtle);
+  box-shadow: 0 2px 4px rgba(8, 112, 56, 0.08);
+}
+
+.period-btn {
+  padding: 0.5rem 0.9rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.period-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--lbg-salem);
+  transform: translateY(-1px);
+}
+
+.period-btn.active {
+  background: var(--lbg-salem);
+  color: var(--lbg-white);
+  box-shadow: 0 2px 4px rgba(8, 112, 56, 0.3);
+}

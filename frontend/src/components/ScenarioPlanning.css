@@ -1,0 +1,48 @@
+.simulation-input {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+
+.simulation-field {
+  flex: 1;
+  padding: 0.85rem;
+  border: 2px solid var(--lbg-grey-200);
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  background: var(--lbg-white);
+  transition: all 0.25s ease;
+  color: var(--text-primary);
+}
+
+.simulation-field:focus {
+  outline: none;
+  border-color: var(--lbg-salem);
+  box-shadow: 0 0 0 3px rgba(8, 112, 56, 0.1);
+}
+
+.simulation-btn {
+  padding: 0.85rem 1.75rem;
+  background: linear-gradient(135deg, var(--lbg-green-light) 0%, var(--lbg-salem) 100%);
+  color: var(--lbg-white);
+  border: none;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 8px rgba(10, 138, 74, 0.3);
+}
+
+.simulation-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--lbg-salem) 0%, var(--lbg-green-dark) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(10, 138, 74, 0.4);
+}
+
+.simulation-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

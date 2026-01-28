@@ -1,0 +1,44 @@
+{
+  "name": "David Williams",
+  "expenses": {
+    "currency": "GBP",
+    "categories": [
+      {"key":"kids","label":"Kids Education","monthly":450},
+      {"key":"health","label":"Healthcare","monthly":240},
+      {"key":"holiday","label":"Holiday","monthly":280},
+      {"key":"rent","label":"Mortgage / Rent","monthly":2100},
+      {"key":"transport","label":"Cab / Transport","monthly":320},
+      {"key":"grocery","label":"Grocery","monthly":750},
+      {"key":"electricity","label":"Electricity","monthly":180},
+      {"key":"utilities","label":"Utilities","monthly":160},
+      {"key":"other","label":"Other","monthly":600}
+    ],
+    "goal_pots": [
+      {"key":"edu_gap","label":"Education Gap","target":18000,"current":2000},
+      {"key":"holiday_fund","label":"Holiday Fund","target":4000,"current":1500},
+      {"key":"medical","label":"Medical Reserve","target":2500,"current":600}
+    ]
+  },
+  "time_series": {
+    "6M": {
+      "labels": ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [140, 145, 143, 148, 152, 158],
+      "metrics": {"resilience": 92, "liq": 88, "edu_gap": 18000, "holiday": 2000, "med": 800, "salary": 9500}
+    },
+    "1Y": {
+      "labels": ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [130, 132, 136, 135, 138, 141, 143, 144, 146, 149, 153, 158],
+      "metrics": {"resilience": 90, "liq": 86, "edu_gap": 18000, "holiday": 2000, "med": 800, "salary": 9500}
+    },
+    "3Y": {
+      "labels": ["2023", "2024", "2025", "2026"],
+      "points": [85, 110, 135, 158],
+      "metrics": {"resilience": 88, "liq": 84, "edu_gap": 18000, "holiday": 2000, "med": 800, "salary": 9500}
+    },
+    "5Y": {
+      "labels": ["2022", "2023", "2024", "2025", "2026"],
+      "points": [68, 85, 110, 135, 158],
+      "metrics": {"resilience": 86, "liq": 82, "edu_gap": 18000, "holiday": 2000, "med": 800, "salary": 9500}
+    }
+  }
+}

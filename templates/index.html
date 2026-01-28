@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lloyds Wealth Insight - Your Personal Financial Dashboard</title>
+    <link rel="stylesheet" href="/static/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Premium Header with LBG Branding -->
+      <header class="header">
+        <div class="header-content">
+          <div class="header-left">
+            <div class="logo-container">
+              <img
+                src="/static/Lloyds-Banking-Group-logo.webp"
+                alt="Lloyds Banking Group"
+                class="logo"
+              />
+            </div>
+            <div class="brand-info">
+              <h1 class="app-title" id="appTitle">Financial Wellbeing</h1>
+              <p class="app-subtitle">Your Personal Financial Dashboard</p>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="profile-selector-container">
+              <label for="profileSelector" class="profile-label">
+                Customer
+              </label>
+              <select id="profileSelector" class="profile-selector">
+                <option value="james_thompson">James Thompson</option>
+              </select>
+            </div>
+            <div class="period-selector">
+              <button class="period-btn active" data-period="6M">
+                <span>6M</span>
+              </button>
+              <button class="period-btn" data-period="1Y">
+                <span>1Y</span>
+              </button>
+              <button class="period-btn" data-period="3Y">
+                <span>3Y</span>
+              </button>
+              <button class="period-btn" data-period="5Y">
+                <span>5Y</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dashboard -->
+      <main class="dashboard">
+        <!-- Hero Metrics Section -->
+        <section class="hero-metrics">
+          <div class="metric-card hero-primary">
+            <div class="metric-content">
+              <div class="metric-info">
+                <div class="metric-label">Monthly Income</div>
+                <div class="metric-value" id="salary">£0</div>
+                <div class="metric-trend">
+                  <span class="trend-icon">↑</span>
+                  <span>Steady growth</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card hero-success">
+            <div class="metric-content">
+              <div class="metric-info">
+                <div class="metric-label">Estimated Savings</div>
+                <div class="metric-value" id="savings">£0</div>
+                <div class="metric-trend">
+                  <span class="trend-icon">✓</span>
+                  <span>On track</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card hero-warning">
+            <div class="metric-content">
+              <div class="metric-info">
+                <div class="metric-label">Monthly Expenses</div>
+                <div class="metric-value" id="expTotal">£0</div>
+                <div class="metric-trend">
+                  <span class="trend-icon">→</span>
+                  <span>Well managed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card hero-info">
+            <div class="metric-content">
+              <div class="metric-info">
+                <div class="metric-label">Financial Wellbeing</div>
+                <div class="metric-value" id="wellnessScore">0%</div>
+                <div class="metric-trend">
+                  <span class="trend-icon">★</span>
+                  <span>Excellent</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="left-column">
+            <!-- Expense Breakdown Card - Pie Chart -->
+            <div class="dashboard-card expenses-card">
+              <div class="card-header">
+                <h2 class="card-title">Expense Breakdown</h2>
+                <div class="card-subtitle" id="expTotalSubtitle">
+                  Total monthly expenses
+                </div>
+              </div>
+              <div class="chart-container expense-pie-chart">
+                <canvas id="expensePieChart"></canvas>
+              </div>
+              <div
+                class="expenses-list"
+                id="expensesList"
+                style="display: none"
+              ></div>
+            </div>
+
+            <!-- Combined Financial Metrics Card (Clickable) -->
+            <div
+              class="dashboard-card financial-metrics-card clickable-card"
+              id="financialMetricsCard"
+            >
+              <div class="card-header">
+                <h2 class="card-title">Financial Metrics</h2>
+                <div class="card-subtitle">
+                  Engagement, Health & Satisfaction
+                </div>
+              </div>
+              <div class="financial-metrics-preview">
+                <div class="preview-item">
+                  <span class="preview-label">Savings Rate</span>
+                  <span class="preview-value" id="previewSavingsRate">0%</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">Resilience</span>
+                  <span class="preview-value" id="previewRes">0%</span>
+                </div>
+                <div class="preview-item">
+                  <span class="preview-label">Liquidity</span>
+                  <span class="preview-value" id="previewLiq">0%</span>
+                </div>
+                <div class="click-hint">Click to view detailed metrics →</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Column -->
+          <div class="center-column">
+            <!-- Financial Flow Chart -->
+            <div class="dashboard-card chart-card flow-card">
+              <div class="card-header">
+                <h2 class="card-title" id="flowTitle">
+                  Income vs Expenses vs Savings
+                </h2>
+              </div>
+              <div class="chart-container large-chart">
+                <canvas id="flowChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Wealth Trajectory -->
+            <div class="dashboard-card chart-card wealth-card">
+              <div class="card-header">
+                <h2 class="card-title">Wealth Trajectory</h2>
+                <div class="card-subtitle">Index points over time</div>
+              </div>
+              <div class="chart-container large-chart">
+                <canvas id="wealthChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="right-column">
+            <!-- AI Insight Summary -->
+            <div class="dashboard-card insight-card">
+              <div class="card-header">
+                <h2 class="card-title">Financial Insight Summary</h2>
+                <div class="card-subtitle">AI-powered financial insights</div>
+              </div>
+              <div class="insight-input">
+                <input
+                  type="text"
+                  id="insightQuestion"
+                  placeholder="Ask about your finances (e.g., 'savings strategy' or 'expense analysis')"
+                  class="insight-field"
+                />
+                <button id="generateInsightBtn" class="insight-btn">
+                  <span>Generate Insight</span>
+                </button>
+              </div>
+              <div class="insight-preview" id="insightPreview">
+                <p class="insight-preview-text">
+                  Click "Generate Insight" to view AI-powered financial analysis
+                </p>
+              </div>
+              <div
+                class="insight-result-collapsed"
+                id="insightResultCollapsed"
+                style="display: none"
+              >
+                <div
+                  class="insight-headline-collapsed"
+                  id="insightHeadlineCollapsed"
+                ></div>
+                <div
+                  class="insight-content-collapsed"
+                  id="insightContentCollapsed"
+                ></div>
+                <button class="read-more-btn" id="insightReadMoreBtn">
+                  Read More →
+                </button>
+              </div>
+            </div>
+
+            <!-- Scenario Planning -->
+            <div class="dashboard-card simulation-card">
+              <div class="card-header">
+                <h2 class="card-title">Financial Scenario Planning</h2>
+                <div class="card-subtitle">Explore financial scenarios</div>
+              </div>
+              <div class="simulation-input">
+                <input
+                  type="text"
+                  id="question"
+                  placeholder="Try: 'I want to retire at 65' or 'holiday budget planning'"
+                  class="simulation-field"
+                />
+                <button id="simulateBtn" class="simulation-btn">
+                  <span>Plan Your Future</span>
+                </button>
+              </div>
+              <div class="simulation-preview" id="simulationPreview">
+                <p class="simulation-preview-text">
+                  Click "Plan Your Future" to explore financial scenarios
+                </p>
+              </div>
+              <div
+                class="simulation-result-collapsed"
+                id="simulationResultCollapsed"
+                style="display: none"
+              >
+                <div
+                  class="simulation-heading-collapsed"
+                  id="simulationHeadingCollapsed"
+                ></div>
+                <div
+                  class="simulation-content-collapsed"
+                  id="simulationContentCollapsed"
+                ></div>
+                <button class="read-more-btn" id="simulationReadMoreBtn">
+                  Read More →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal for Expense Details -->
+    <div class="modal-overlay" id="expenseDetailModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Expense Details</h2>
+          <button class="modal-close" id="closeExpenseModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="expense-detail-content">
+            <div class="expense-detail-header">
+              <h3 class="expense-detail-label" id="expenseDetailLabel">-</h3>
+              <div class="expense-detail-amount" id="expenseDetailAmount">
+                -
+              </div>
+            </div>
+            <div class="expense-detail-metrics">
+              <div class="expense-detail-metric">
+                <span class="metric-label">Percentage</span>
+                <span class="metric-value" id="expenseDetailPct">-</span>
+              </div>
+              <div class="expense-detail-metric">
+                <span class="metric-label">Monthly Amount</span>
+                <span class="metric-value" id="expenseDetailMonthly">-</span>
+              </div>
+              <div class="expense-detail-metric">
+                <span class="metric-label">Share of Expenses</span>
+                <span class="metric-value" id="expenseDetailShare">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Financial Metrics -->
+    <div class="modal-overlay" id="financialMetricsModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Financial Metrics Details</h2>
+          <button class="modal-close" id="closeFinancialModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Financial Engagement Section -->
+          <div class="modal-section">
+            <h3 class="modal-section-title">Financial Engagement</h3>
+            <div class="engagement-metrics">
+              <div class="engagement-item">
+                <div class="engagement-header">
+                  <span class="engagement-label">Savings Rate</span>
+                  <span class="engagement-value" id="modalSavingsRate">0%</span>
+                </div>
+                <div class="engagement-bar">
+                  <div class="engagement-fill" id="modalSavingsRateBar"></div>
+                </div>
+              </div>
+              <div class="engagement-item">
+                <div class="engagement-header">
+                  <span class="engagement-label">Spending Efficiency</span>
+                  <span class="engagement-value" id="modalEfficiency">0%</span>
+                </div>
+                <div class="engagement-bar">
+                  <div class="engagement-fill" id="modalEfficiencyBar"></div>
+                </div>
+              </div>
+              <div class="engagement-item">
+                <div class="engagement-header">
+                  <span class="engagement-label">Goal Progress</span>
+                  <span class="engagement-value" id="modalGoalProgress"
+                    >0%</span
+                  >
+                </div>
+                <div class="engagement-bar">
+                  <div class="engagement-fill" id="modalGoalProgressBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Health Section -->
+          <div class="modal-section">
+            <h3 class="modal-section-title">Financial Health</h3>
+            <div class="health-metrics">
+              <div class="health-item">
+                <div class="health-content">
+                  <div class="health-header">
+                    <span class="health-label">Financial Resilience</span>
+                    <span class="health-value" id="modalRes">0%</span>
+                  </div>
+                  <div class="health-bar">
+                    <div class="health-fill" id="modalResBar"></div>
+                  </div>
+                  <div class="health-description">
+                    Your ability to handle unexpected expenses
+                  </div>
+                </div>
+              </div>
+              <div class="health-item">
+                <div class="health-content">
+                  <div class="health-header">
+                    <span class="health-label">Liquidity Score</span>
+                    <span class="health-value" id="modalLiq">0%</span>
+                  </div>
+                  <div class="health-bar">
+                    <div class="health-fill" id="modalLiqBar"></div>
+                  </div>
+                  <div class="health-description">
+                    Access to available funds
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Satisfaction Section -->
+          <div class="modal-section">
+            <h3 class="modal-section-title">Financial Satisfaction</h3>
+            <div class="chart-container satisfaction-chart">
+              <canvas id="modalSatisfactionChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Insight Summary -->
+    <div class="modal-overlay" id="insightModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Financial Insight Summary</h2>
+          <button class="modal-close" id="closeInsightModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="insight-modal-content">
+            <div class="insight-headline" id="modalSumHeadline">
+              Generating insight…
+            </div>
+            <div class="insight-content-formatted" id="modalSumBullets"></div>
+            <div class="insight-note" id="modalSumNote"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Scenario Planning -->
+    <div class="modal-overlay" id="simulationModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Plan Your Future</h2>
+          <button class="modal-close" id="closeSimulationModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="simulation-modal-content">
+            <div class="simulation-heading" id="modalSimHeading">
+              Running simulation…
+            </div>
+            <div class="simulation-body-formatted" id="modalSimBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

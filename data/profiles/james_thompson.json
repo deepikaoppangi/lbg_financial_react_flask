@@ -1,0 +1,44 @@
+{
+  "name": "James Thompson",
+  "expenses": {
+    "currency": "GBP",
+    "categories": [
+      {"key":"kids","label":"Kids Education","monthly":300},
+      {"key":"health","label":"Healthcare","monthly":160},
+      {"key":"holiday","label":"Holiday","monthly":180},
+      {"key":"rent","label":"Mortgage / Rent","monthly":1450},
+      {"key":"transport","label":"Cab / Transport","monthly":220},
+      {"key":"grocery","label":"Grocery","monthly":520},
+      {"key":"electricity","label":"Electricity","monthly":120},
+      {"key":"utilities","label":"Utilities","monthly":110},
+      {"key":"other","label":"Other","monthly":400}
+    ],
+    "goal_pots": [
+      {"key":"edu_gap","label":"Education Gap","target":11800,"current":0},
+      {"key":"holiday_fund","label":"Holiday Fund","target":2500,"current":800},
+      {"key":"medical","label":"Medical Reserve","target":1500,"current":250}
+    ]
+  },
+  "time_series": {
+    "6M": {
+      "labels": ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [105, 109, 108, 112, 115, 118],
+      "metrics": {"resilience": 81, "liq": 75, "edu_gap": 11800, "holiday": 1200, "med": 400, "salary": 6500}
+    },
+    "1Y": {
+      "labels": ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [95, 97, 101, 100, 103, 106, 108, 109, 111, 113, 116, 118],
+      "metrics": {"resilience": 79, "liq": 73, "edu_gap": 11800, "holiday": 1200, "med": 400, "salary": 6500}
+    },
+    "3Y": {
+      "labels": ["2023", "2024", "2025", "2026"],
+      "points": [62, 78, 98, 118],
+      "metrics": {"resilience": 76, "liq": 70, "edu_gap": 11800, "holiday": 1200, "med": 400, "salary": 6500}
+    },
+    "5Y": {
+      "labels": ["2022", "2023", "2024", "2025", "2026"],
+      "points": [48, 62, 78, 98, 118],
+      "metrics": {"resilience": 74, "liq": 68, "edu_gap": 11800, "holiday": 1200, "med": 400, "salary": 6500}
+    }
+  }
+}

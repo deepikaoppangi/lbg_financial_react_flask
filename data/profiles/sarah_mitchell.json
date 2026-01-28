@@ -1,0 +1,44 @@
+{
+  "name": "Sarah Mitchell",
+  "expenses": {
+    "currency": "GBP",
+    "categories": [
+      {"key":"kids","label":"Kids Education","monthly":200},
+      {"key":"health","label":"Healthcare","monthly":110},
+      {"key":"holiday","label":"Holiday","monthly":120},
+      {"key":"rent","label":"Mortgage / Rent","monthly":950},
+      {"key":"transport","label":"Cab / Transport","monthly":150},
+      {"key":"grocery","label":"Grocery","monthly":350},
+      {"key":"electricity","label":"Electricity","monthly":80},
+      {"key":"utilities","label":"Utilities","monthly":75},
+      {"key":"other","label":"Other","monthly":270}
+    ],
+    "goal_pots": [
+      {"key":"edu_gap","label":"Education Gap","target":8000,"current":0},
+      {"key":"holiday_fund","label":"Holiday Fund","target":1800,"current":500},
+      {"key":"medical","label":"Medical Reserve","target":1000,"current":150}
+    ]
+  },
+  "time_series": {
+    "6M": {
+      "labels": ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [75, 78, 77, 80, 82, 85],
+      "metrics": {"resilience": 65, "liq": 58, "edu_gap": 8000, "holiday": 800, "med": 250, "salary": 4200}
+    },
+    "1Y": {
+      "labels": ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
+      "points": [70, 72, 74, 73, 75, 77, 78, 79, 80, 82, 84, 85],
+      "metrics": {"resilience": 63, "liq": 56, "edu_gap": 8000, "holiday": 800, "med": 250, "salary": 4200}
+    },
+    "3Y": {
+      "labels": ["2023", "2024", "2025", "2026"],
+      "points": [50, 62, 72, 85],
+      "metrics": {"resilience": 60, "liq": 53, "edu_gap": 8000, "holiday": 800, "med": 250, "salary": 4200}
+    },
+    "5Y": {
+      "labels": ["2022", "2023", "2024", "2025", "2026"],
+      "points": [42, 50, 62, 72, 85],
+      "metrics": {"resilience": 58, "liq": 51, "edu_gap": 8000, "holiday": 800, "med": 250, "salary": 4200}
+    }
+  }
+}
