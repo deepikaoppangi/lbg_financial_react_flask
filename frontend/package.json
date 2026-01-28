@@ -2,6 +2,9 @@
   "name": "lbg-financial-dashboard",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "axios": "^1.6.2",
     "chart.js": "^4.4.0",
